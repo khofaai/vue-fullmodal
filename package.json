@@ -1,0 +1,20 @@
+{
+	"name":"vue-fullmodal",
+	"version":"0.1.0",
+	"description":"vuejs modal full screen",
+	"main": "src/FullModal.vue",
+	"license": "MIT",
+	"author": "Anas El ALAMI",
+	"repository": {
+	  "type": "git",
+	  "url": "https://github.com/khofaai/vue-fullmodal"
+	},
+	"keywords": [
+	  "vuejs",
+	  "fullmodal",
+	  "modal",
+	  "vue",
+	  "vuejs-fullmodal",
+	  "vuejs-component"
+	]
+}
