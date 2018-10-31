@@ -48,6 +48,11 @@
 				this.modalOpenState = false;
 			}
 		},
+    watch:{
+      open(newVal) {
+        this.modalOpenState = newVal;
+      }
+    },
 		mounted() {
 			this.modalOpenState = this.open;
 			this.$emit('mounted')
