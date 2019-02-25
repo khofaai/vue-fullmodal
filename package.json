@@ -1,6 +1,6 @@
 {
 	"name":"vue-fullmodal",
-	"version":"0.1.0",
+	"version":"0.2.0",
 	"description":"vuejs modal full screen",
 	"main": "src/FullModal.vue",
 	"license": "MIT",

@@ -1,9 +1,9 @@
 <template>
-	<div class="fullmodal-modal" :class="{'is-show': modalOpenState}">
+	<div class="fullmodal-modal" :class="{ modelCustomClass: modalOpenState }">
 		<div class="fullmodal-wrapper">
 			<div class="fullmodal-container">
 				<slot name="close">
-					<div @click="closeModal" class="fullmodal-close" :class="{backActionClassName : enableBackAction }">
+					<div @click="closeModal" class="fullmodal-close" :class="{ backActionClassName: enableBackAction }">
 						<span></span>
 					</div>
 				</slot>
@@ -14,8 +14,12 @@
 								<h4>FullModal Header</h4>
 								<p>This is a short Description that may be fit to describe what you want or what you think.</p>
 								<div class="example-box-actions">
-									<a href="javascript:;" class="primary-btn btn-principal confirm-revoke-cnnct text-center">Primary Action</a>
-									<a @click="$emit('close')" href="javascript:;" class="primary-btn btn-bordered dark text-center">Secondary Action</a>
+									<a href="javascript:;" class="primary-btn btn-principal confirm-revoke-cnnct text-center">
+                    Primary Action
+                  </a>
+									<a @click="$emit('close')" href="javascript:;" class="primary-btn btn-bordered dark text-center">
+                    Secondary Action
+                  </a>
 								</div>
 							</div>
 						</slot>
@@ -27,35 +31,40 @@
 </template>
 <script>
 	export default {
-		props:{
-			customClass:{
-				default:'is-show'
+		props: {
+			customClass: {
+				default: 'is-show'
 			},
-			open:{
-				default:false
+			open: {
+				default: false
 			}
 		},
 		data() {
 			return {
-				modalOpenState:false,
-				enableBackAction:false,
-				backActionClassName: 'fullmodal-back'
+				modalOpenState: false,
+        modelCustomClass: '',
+        enableBackAction: false,
+        backActionClassName: 'fullmodal-back',
 			}
 		},
-		methods:{
+		methods: {
 			closeModal() {
 				this.$emit(this.enableBackAction ? 'back' : 'close');
 				this.modalOpenState = false;
 			}
 		},
     watch:{
+      customClass(newVal) {
+        this.modelCustomClass = newVal;
+      },
       open(newVal) {
         this.modalOpenState = newVal;
       }
     },
 		mounted() {
-			this.modalOpenState = this.open;
-			this.$emit('mounted')
+      this.modalOpenState = this.open;
+			this.modelCustomClass = this.customClass;
+			this.$emit('mounted');
 		}
 	}
 </script>
