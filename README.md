@@ -15,5 +15,6 @@ this package still in earlier stage
 
 ## Actions
 
-**mounted** : triggred when modal is mounted
+**mounted** : triggred when modal is mounted.
+
 **open** : to open / close modal, by default false.
